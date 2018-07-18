@@ -7,10 +7,6 @@ __pycache__/
 
 # Distribution / packaging
 .Python
-env/
-build/
-develop-eggs/
-dist/
 !/common/static/common/js/vendor/materialize/dist
 downloads/
 eggs/
