@@ -1,0 +1,35 @@
+<!-- Left Sidebar  -->
+<div class="left-sidebar">
+    <!-- Sidebar scroll-->
+    <div class="scroll-sidebar">
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav">
+            <ul id="sidebarnav">
+                <li class="nav-devider"></li>
+                <li class=""><a href="{% url 'index' %}" ><i class="fa fa-home"></i><span class="hide-menu">Home</span></a></li>
+                <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-bar-chart"></i><span class="hide-menu">Charts</span></a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a href="{% url 'airport_charts' %}">Airport</a></li>
+                    </ul>
+                </li>
+                <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-map-marker"></i><span class="hide-menu">Maps</span></a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a href="{% url 'traffic' %}">Airport traffic</a></li>
+                        <li><a href="{% url 'routes' %}">Airport routes</a></li>
+                        <li><a href="{% url 'lof_routes' %}">LOF routes</a></li>
+                    </ul>
+                </li>
+                <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Table</span></a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a href="{% url 'table' %}">All flights data</a></li>
+                    </ul>
+                </li>
+                <li class=""><a href="{% url 'source_code' %}" ><i class="fa fa-github-alt"></i><span class="hide-menu">Source code</span></a></li>
+
+            </ul>
+        </nav>
+        <!-- End Sidebar navigation -->
+    </div>
+    <!-- End Sidebar scroll-->
+</div>
+<!-- End Left Sidebar  -->

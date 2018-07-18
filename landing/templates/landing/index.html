@@ -1,0 +1,117 @@
+{% extends "landing/base.html" %}
+{% load static staticfiles %}
+
+{% block content %}
+    <!-- Container fluid  -->
+    <div class="container-fluid">
+        <!-- Start Page Content -->
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card p-30">
+                    <div class="media">
+                        <div class="media-left meida media-middle">
+                            <span><i class="fa fa-calendar f-s-40 color-primary"></i></span>
+                        </div>
+                        <div class="media-body media-text-right">
+                            <h2 id="total-days"><i class="fa fa-refresh fa-spin"></i></h2>
+                            <p class="m-b-0">Total Days</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card p-30">
+                    <div class="media">
+                        <div class="media-left meida media-middle">
+                            <span><i class="fa fa-map-marker f-s-40 color-success"></i></span>
+                        </div>
+                        <div class="media-body media-text-right">
+                            <h2 id="total-airports"><i class="fa fa-refresh fa-spin"></i></h2>
+                            <p class="m-b-0">Airports</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card p-30">
+                    <div class="media">
+                        <div class="media-left meida media-middle">
+                            <span><i class="fa fa-list-ol f-s-40 color-warning"></i></span>
+                        </div>
+                        <div class="media-body media-text-right">
+                            <h2 id="total-routes"><i class="fa fa-refresh fa-spin"></i></h2>
+                            <p class="m-b-0">Routes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card p-30">
+                    <div class="media">
+                        <div class="media-left meida media-middle">
+                            <span><i class="fa fa-plane f-s-40 color-danger"></i></span>
+                        </div>
+                        <div class="media-body media-text-right">
+                            <h2 id="total-flights"><i class="fa fa-refresh fa-spin"></i></h2>
+                            <p class="m-b-0">Flights</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-title">
+                    <h4>Daily flights</h4>
+                </div>
+                <div class="loader-circle"></div>
+                <div class="card-body">
+                    <div id="flights-line-chart"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-title">
+                    <h4>Daily routes (or aircrafts)</h4>
+                </div>
+                <div class="loader-circle"></div>
+                <div class="card-body">
+                    <div id="routes-line-chart"></div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+
+
+        <!-- End PAge Content -->
+    </div>
+    <!-- End Container fluid  -->
+
+{% endblock %}
+
+{% block extra_js %}
+    <!-- Datamap init-->
+{#    <script src="{% static 'common/js/lib/datamap/d3.min.js' %}"></script>#}
+{#    <script src="{% static 'common/js/lib/datamap/topojson.js' %}"></script>#}
+{#    <script src="{% static 'common/js/lib/datamap/datamaps.world.min.js' %}"></script>#}
+{#    <script src="{% static 'common/js/lib/datamap/datamap-init.js' %}"></script>#}
+
+    <script src="{% static 'common/js/lib/owl-carousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'common/js/lib/owl-carousel/owl.carousel-init.js' %}"></script>
+
+    <!-- Morris chart -->
+    <script src="{% static 'common/js/lib/morris-chart/raphael-min.js' %}"></script>
+    <script src="{% static 'common/js/lib/morris-chart/morris.js' %}"></script>
+
+    <!-- Chartist init-->
+{#    <script src="{% static 'common/js/lib/chartist/chartist.min.js' %}"></script>#}
+{#    <script src="{% static 'common/js/lib/chartist/chartist-plugin-tooltip.min.js' %}"></script>#}
+{#    <script src="{% static 'common/js/lib/chartist/chartist-init.js' %}"></script>#}
+
+    <script src="{% static 'landing/js/main.js' %}"></script>
+
+{% endblock %}

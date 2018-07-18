@@ -1,0 +1,74 @@
+{% extends "landing/base.html" %}
+{% load static staticfiles %}
+
+{% block extra_css %}
+    <link href="{% static 'common/css/lib/amchart/export.css' %}" rel="stylesheet">
+    <!-- Date Range Picker -->
+    <link href="{% static 'common/css/lib/daterangepicker/daterangepicker.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block top_title %}Airport traffic{% endblock %}
+
+{% block breadcrumb_items %}
+    {{ block.super }}
+    <li class="breadcrumb-item active">Airport traffic</li>
+{% endblock %}
+
+{% block content %}
+            <!-- Container fluid  -->
+            <div class="container-fluid">
+                <!-- Start Page Content -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="row">
+                                <div class="form-group date-range col-md-6">
+                                    <label>Choose a date range for the routes</label>
+                                    <div class="input-group">
+                                        <input type='text' class="form-control" />
+                                        <span class="input-group-addon calendar-icon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-title">
+                                <h4>Volume traffic by airport</h4>
+
+                            </div>
+                            <p><span>Please, click on the circles to view more info</span></p>
+                            <div class="loader-circle" id="loader-circle"></div>
+                            <div class="gmap_unix">
+                                <div class="map" id="flights-map"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- End PAge Content -->
+            </div>
+            <!-- End Container fluid  -->
+
+{% endblock %}
+
+{% block extra_js %}
+
+{#    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>#}
+{#    <script src="{% static 'common/js/lib/chart-amchart/export.min.js' %}"></script>#}
+{#    <script src="{% static 'common/js/lib/chart-amchart/light.js' %}"></script>#}
+{#    <script src="{% static 'common/js/lib/chart-amchart/ammap.js' %}"></script>#}
+{#    <script src="{% static 'common/js/lib/chart-amchart/worldLow.js' %}"></script>#}
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHucu8eBLEP0ZcSwdSOUmBBByDtpLT6m8&libraries=geometry" type="text/javascript"></script>
+    <script src="{% static 'common/js/lib/daterangepicker/moment.js' %}"></script>
+    <script src="{% static 'common/js/lib/daterangepicker/daterangepicker.js' %}"></script>
+
+
+    <script src="{% static 'landing/js/maps/gmap-flights.js' %}"></script>
+
+{% endblock %}
+
+

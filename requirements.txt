@@ -1,0 +1,7 @@
+django==1.10
+numpy==1.14.5
+pandas==0.23.3
+xlrd==1.1.0
+ipython
+djangorestframework==3.8.2
+rest-pandas==1.0.0

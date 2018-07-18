@@ -1,0 +1,119 @@
+{% extends "landing/base.html" %}
+{% load static staticfiles %}
+
+{% block extra_css %}
+    <link href="{% static 'common/css/lib/amchart/export.css' %}" rel="stylesheet">
+    <!-- Date Range Picker -->
+    <link href="{% static 'common/css/lib/daterangepicker/daterangepicker.css' %}" rel="stylesheet">
+    <!-- Chosen -->
+    <link href="{% static 'common/css/lib/chosen/chosen.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block top_title %}LOF aircraft routes{% endblock %}
+
+{% block breadcrumb_items %}
+    {{ block.super }}
+    <li class="breadcrumb-item active">LOF routes</li>
+{% endblock %}
+
+{% block content %}
+            <!-- Container fluid  -->
+            <div class="container-fluid">
+                <!-- Start Page Content -->
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="row">
+                                <div class="form-group date-range col-md-6">
+                                    <label>Choose a date range for the routes</label>
+                                    <div class="input-group">
+                                        <input type='text' class="form-control" />
+                                        <span class="input-group-addon calendar-icon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group origin-airport col-md-6">
+                                    <label>Route code</label><br>
+                                    <select id="route-select" class="route-select" style="width: 100%"></select>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="card">
+                            <div class="card-title">
+                                <h4>Destinations for an aircraft (route)</h4>
+                            </div>
+                            <div class="loader-circle" id="loader-circle"></div>
+                            <div class="card-body">
+                                <div id="chartMap"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-title">
+                                <h4>Route data</h4>
+                            </div>
+                            <div class="loader-circle" id="loader-circle"></div>
+                            <div class="card-body">
+                                <div class="table-responsive ">
+                                    <table id="routeTable" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <td>Dep</td>
+                                                <td>Hour</td>
+                                                <td>Arr</td>
+                                                <td>Hour</td>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- End PAge Content -->
+            </div>
+            <!-- End Container fluid  -->
+
+{% endblock %}
+
+{% block extra_js %}
+
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="{% static 'common/js/lib/chart-amchart/export.min.js' %}"></script>
+    <script src="{% static 'common/js/lib/chart-amchart/light.js' %}"></script>
+    <script src="{% static 'common/js/lib/chart-amchart/ammap.js' %}"></script>
+    <script src="{% static 'common/js/lib/chart-amchart/worldLow.js' %}"></script>
+
+    <script src="{% static 'common/js/lib/daterangepicker/moment.js' %}"></script>
+    <script src="{% static 'common/js/lib/daterangepicker/daterangepicker.js' %}"></script>
+    <!-- Chosen jQuery-->
+    <script src="{% static 'common/js/lib/chosen/chosen.jquery.js' %}"></script>
+
+    <script src="{% static 'common/js/lib/datatables/datatables.min.js' %}"></script>
+    <script src="{% static 'common/js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js' %}"></script>
+    <script src="{% static 'common/js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js' %}"></script>
+    <script src="{% static 'common/js/lib/datatables/cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js' %}"></script>
+    <script src="{% static 'common/js/lib/datatables/cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js' %}"></script>
+    <script src="{% static 'common/js/lib/datatables/cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js' %}"></script>
+    <script src="{% static 'common/js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js' %}"></script>
+    <script src="{% static 'common/js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js' %}"></script>
+
+    <script src="{% static 'landing/js/maps/lof-routes.js' %}"></script>
+
+{% endblock %}
+
+

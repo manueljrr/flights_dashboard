@@ -1,0 +1,129 @@
+{% extends "landing/base.html" %}
+{% load static staticfiles %}
+
+{% block extra_css %}
+    <link href="{% static 'common/css/lib/amchart/export.css' %}" rel="stylesheet">
+    <!-- Date Range Picker -->
+    <link href="{% static 'common/css/lib/daterangepicker/daterangepicker.css' %}" rel="stylesheet">
+    <!-- Chosen -->
+    <link href="{% static 'common/css/lib/chosen/chosen.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block top_title %}Airport charts{% endblock %}
+
+{% block breadcrumb_items %}
+    {{ block.super }}
+    <li class="breadcrumb-item active">Airport</li>
+{% endblock %}
+
+{% block content %}
+            <!-- Container fluid  -->
+            <div class="container-fluid">
+                <!-- Start Page Content -->
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="row">
+
+                                <div class="form-group origin-airport col-md-6">
+                                    <label>Origin Airport</label><br>
+                                    <select id="airport-select" class="airport-select"></select>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-title">
+                                <h4>Flights from or to this airport</h4>
+                            </div>
+                            <div class="loader-circle"></div>
+                            <div class="card-body">
+                                <div id="barChart"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-title">
+                                <h4>Flights TO this airport</h4>
+                            </div>
+                            <div class="loader-circle"></div>
+                            <div class="card-body">
+                                <div class="table-responsive ">
+                                    <table id="arrTable" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <td>Departure</td>
+                                                <td>Arrival</td>
+                                                <td>Flights</td>
+                                                <td>Duration</td>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-title">
+                                <h4>Flights FROM this airport</h4>
+                            </div>
+                            <div class="loader-circle"></div>
+                            <div class="card-body">
+
+                                <div class="table-responsive ">
+                                    <table id="depTable" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <td>Departure</td>
+                                                <td>Arrival</td>
+                                                <td>Flights</td>
+                                                <td>Duration</td>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- End PAge Content -->
+            </div>
+            <!-- End Container fluid  -->
+
+{% endblock %}
+
+{% block extra_js %}
+
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="{% static 'common/js/lib/daterangepicker/moment.js' %}"></script>
+    <script src="{% static 'common/js/lib/daterangepicker/daterangepicker.js' %}"></script>
+    <!-- Chosen jQuery-->
+    <script src="{% static 'common/js/lib/chosen/chosen.jquery.js' %}"></script>
+
+    <script src="{% static 'common/js/lib/echart/echarts.js' %}"></script>
+
+    <script src="{% static 'common/js/lib/datatables/datatables.min.js' %}"></script>
+    <script src="{% static 'common/js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js' %}"></script>
+    <script src="{% static 'common/js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js' %}"></script>
+    <script src="{% static 'common/js/lib/datatables/cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js' %}"></script>
+    <script src="{% static 'common/js/lib/datatables/cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js' %}"></script>
+    <script src="{% static 'common/js/lib/datatables/cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js' %}"></script>
+    <script src="{% static 'common/js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js' %}"></script>
+    <script src="{% static 'common/js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js' %}"></script>
+
+    <script src="{% static 'landing/js/charts/airports.js' %}"></script>
+
+{% endblock %}
+
+
