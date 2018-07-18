@@ -2,6 +2,7 @@
 
 from django.conf.urls import url
 from landing import views as landing_views
+from django.views.generic import RedirectView
 
 urlpatterns = [
     url(
@@ -33,6 +34,11 @@ urlpatterns = [
         r'^airport-charts/$',
         landing_views.AirportView.as_view(),
         name='airport_charts'
+    ),
+    url(
+        r'^source-code/$',
+        RedirectView.as_view(url='https://github.com/manueljrr/flights_dashboard'),
+        name='source_code'
     ),
 ]
 

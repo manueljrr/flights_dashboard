@@ -2,7 +2,6 @@
 
 from django.conf.urls import include, url
 from backend import views as backend_views
-from django.views.generic import RedirectView
 
 
 urlpatterns = [
@@ -50,10 +49,5 @@ urlpatterns = [
         r'^arrivals/$',
         backend_views.ArrivalsApiView.as_view(),
         name='arrivals'
-    ),
-    url(
-        r'^source-code/$',
-        RedirectView.as_view(url='https://github.com/manueljrr/flights_dashboard'),
-        name='source_code'
     ),
 ]
